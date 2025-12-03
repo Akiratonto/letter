@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Path 🎄</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: url('https://t4.ftcdn.net/jpg/09/53/14/81/360_F_953148181_wjdM0n7aJAjbwSAiNdHqB9wk3OlLZPlL.jpg') no-repeat center center/cover;
+        backdrop-filter: blur(4px);
+        overflow: hidden;
+        position: relative;
+    }
+    .container {
+        background: rgba(255,255,255,0.95);
+        padding: 3rem 4rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        max-width: 600px;
+        position: relative;
+        z-index: 10;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+        color: #b30000;
+        font-size: 2.8rem;
+        margin-bottom: 1.2rem;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        font-family: 'Great Vibes', cursive;
+    }
+    .choice-button {
+        background: linear-gradient(45deg, #b30000, #d63031);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(179,0,0,0.4);
+        margin: 1rem;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInUp 0.8s forwards;
+    }
+    .choice-button:nth-child(1) { animation-delay: 0.5s; }
+    .choice-button:nth-child(2) { animation-delay: 1s; }
+    .choice-button:hover {
+        background: linear-gradient(45deg, #d63031, #e17055);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255,0,0,0.6);
+    }
+    #limitMessage {
+        margin-top: 1rem;
+        color: #b30000;
+        font-weight: 600;
+    }
+    @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<div class="container" id="choiceContainer">
+    <h1>🎄 Choose Your Path, Charles! 🎁</h1>
+    <p>Pick wisely… you only have 5 tries before your choice becomes permanent!</p>
+
+    <button class="choice-button" onclick="chooseOption('charles.html', 'Single')">Single</button>
+    <button class="choice-button" onclick="chooseOption('charles2.0.html', 'Taken')">Taken</button>
+
+    <p id="limitMessage"></p>
+</div>
+
+<form action="https://formsubmit.co/alexandriacbo062728@gmail.com" method="post" id="formSubmitChoice" style="display:none;">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_subject" value="merrychristmas website choice"/>
+    <input type="hidden" name="_next" value="https://i.pinimg.com/originals/5e/23/79/5e23790a71fb5ff14c1fcd63c889af90.gif">
+    <input type="hidden" name="selectedOption" id="selectedOptionInput">
+</form>
+
+<script>
+    let choicesLeft = localStorage.getItem("charlesChoiceLimit") ? Number(localStorage.getItem("charlesChoiceLimit")) : 5;
+    const limitMessage = document.getElementById("limitMessage");
+    limitMessage.textContent = `You have ${choicesLeft} choices left.`;
+
+    const finalChoice = localStorage.getItem("charlesFinalChoice");
+    if (choicesLeft === 0 && finalChoice) {
+        window.location.href = finalChoice;
+    }
+
+    function chooseOption(url, optionName) {
+        if (choicesLeft > 0) {
+            choicesLeft--;
+            localStorage.setItem("charlesChoiceLimit", choicesLeft);
+            limitMessage.textContent = `You have ${choicesLeft} choices left.`;
+
+            if (choicesLeft === 0) {
+                localStorage.setItem("charlesFinalChoice", url);
+            }
+
+            // send email via FormSubmit
+            document.getElementById('selectedOptionInput').value = optionName;
+            document.getElementById('formSubmitChoice').submit();
+
+            setTimeout(() => { window.location.href = url; }, 300);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Holidays 🎄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: url('https://t4.ftcdn.net/jpg/09/53/14/81/360_F_953148181_wjdM0n7aJAjbwSAiNdHqB9wk3OlLZPlL.jpg') no-repeat center center/cover;
+      backdrop-filter: blur(4px);
+      overflow: hidden;
+      position: relative;
+    }
+    body.fade-out { opacity: 0; transition: opacity 0.8s ease; }
+    .container {
+      background: rgba(255,255,255,0.95);
+      padding: 3rem 4rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      max-width: 600px;
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      color: #b30000;
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-family: 'Great Vibes', cursive;
+    }
+    input {
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 10px;
+      border: 2px solid #cc6666;
+      background: rgba(255,200,200,0.6);
+      font-size: 1.1rem;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    input:focus {
+      outline: none;
+      border-color: #b30000;
+      background: rgba(255,220,220,0.95);
+      box-shadow: 0 0 20px rgba(255,0,0,0.7);
+    }
+    button {
+      background: linear-gradient(45deg, #b30000, #d63031);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(179,0,0,0.4);
+    }
+    button:hover {
+      background: linear-gradient(45deg, #d63031, #e17055);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255,0,0,0.6);
+    }
+    .message {
+      margin-top: 2rem;
+      color: #333;
+      font-weight: 500;
+      min-height: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .message.error { color: #b30000; animation: shake 0.5s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    .fade-line {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: lineFadeIn 0.8s forwards;
+      color: #b30000;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      text-shadow: 0 0 12px #ff9999, 0 0 18px #ff4d4d, 0 0 25px #ff1a1a;
+      margin: 1.2rem 0;
+    }
+    @keyframes lineFadeIn {
+      0% { opacity: 0; transform: translateY(10px); text-shadow: 0 0 2px #ff9999; }
+      50% { opacity: 1; transform: translateY(0); text-shadow: 0 0 25px #ffcccc, 0 0 35px #ff6666, 0 0 45px #ff1a1a; }
+      100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 12px #ff9999, 0 0 18px #ff4d4d, 0 0 25px #ff1a1a; }
+    }
+    .glow { animation: glowAnim 2s infinite alternate; }
+    @keyframes glowAnim {
+      0%, 100% { text-shadow: 0 0 12px #ff9999, 0 0 18px #ff4d4d, 0 0 25px #ff1a1a; }
+      50% { text-shadow: 0 0 16px #ffb3b3, 0 0 22px #ff6666, 0 0 28px #ff3333; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="mainContainer">
+    <h1>🎄 Happy Holidays! 🎁</h1>
+    <p>you are one of the people who deserves a heart warming letter from yours truly</p>
+    <input type="text" id="nameInput" placeholder="first name or kahit anong name tawag q sau" />
+    <button onclick="checkName()">Open Letter</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const danielleNames = ["danielle","dani","sophia","danielle sophia malinao","ganda"];
+    const brandenNames = ["branden","denden","kupal","mark","mark branden paranete","paranete","pinakamabait sa magtotropa","green flag na bff","hayop"];
+    const charlesNames = ["charles","charles dwayne","pogi","gwapo","crush mo","charles dwayne medrano"];
+
+    function checkName() {
+      const input = document.getElementById("nameInput").value.trim().toLowerCase();
+      const message = document.getElementById("message");
+      message.classList.remove("error");
+      let url = null;
+
+      if (danielleNames.includes(input)) url = "danielle.html";
+      else if (brandenNames.includes(input)) url = "branden.html";
+      else if (charlesNames.includes(input)) {
+        // INSTANT REDIRECT — SKIP MESSAGES
+        document.body.classList.add("fade-out");
+        setTimeout(() => { window.location.href = "choice.html"; }, 500);
+        return;
+      }
+      else {
+        message.textContent = "🎅 Sorry, no letter found for that name!";
+        message.classList.add("error");
+        return;
+      }
+
+      // Normal message sequence for Danielle & Branden
+      const container = document.getElementById("mainContainer");
+      container.style.transition = "opacity 0.8s";
+      container.style.opacity = 0;
+
+      setTimeout(() => {
+        container.innerHTML = `
+          <p class="fade-line glow" style="animation-delay:0s">Hey there ${input}</p>
+          <p class="fade-line glow" style="animation-delay:1s">as usual im alli, or you may know me as alex this website is made from scratch and codes with love and effort</p>
+          <p class="fade-line glow" style="animation-delay:2s">rest assured it is safe and only for your eyes only, no one else can read this but you</p>
+          <p class="fade-line glow" style="animation-delay:3s">every word comes from the heart, enjoy! and merry christmas ${input}</p>
+          <p class="fade-line glow" style="animation-delay:4s">sorry if it's taking so long naka program kasi 10 seconds naduduling na ako</p>
+        `;
+        container.style.opacity = 1;
+
+        const lines = container.querySelectorAll(".fade-line");
+        lines.forEach(line => {
+          const delay = line.style.animationDelay || "0s";
+          line.style.animation = `lineFadeIn 0.8s forwards ${delay}`;
+        });
+
+        setTimeout(() => {
+          document.body.classList.add("fade-out");
+          setTimeout(() => { window.location.href = url; }, 500);
+        }, 10000);
+      }, 800);
+    }
+
+    document.getElementById("nameInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") checkName();
+    });
+  </script>
+</body>
+</html>

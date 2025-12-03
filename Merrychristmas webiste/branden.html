@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branden’s Letter</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Cambria Math', serif;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    background: url(https://usagif.com/wp-content/uploads/gify/40-dog-christmas-santa-claus-usagif.gif) center/cover no-repeat fixed;
+  }
+
+  /* Intro screen */
+  #intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fffbe6;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10001;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  }
+
+  /* Letter styling */
+  .letter {
+    background: rgba(0,0,0,0.5);
+    padding: 40px 60px;
+    border-radius: 20px;
+    max-width: 750px;
+    margin: 80px auto 0 auto;
+    text-align: left;
+    font-size: 1.35em;
+    line-height: 1.8em;
+    color: #fffbe6;
+    backdrop-filter: blur(4px);
+  }
+
+  .gold-banner {
+    display: inline-block;
+    background: linear-gradient(45deg, #c8a951, #f9e98e, #d4af37, #b8860b);
+    color: #4b2e00;
+    padding: 15px 40px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .signature {
+    text-align: right;
+    font-size: 1.4em;
+    margin-top: 35px;
+    color: #ffe6a7;
+  }
+
+  /* Flash cards container */
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px; /* space between cards */
+    margin: 90px 20px 150px 20px;
+  }
+
+  /* Flip cards */
+  .card {
+    width: 270px;
+    height: 210px;
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .card:hover .card-inner, .card.touch-flip .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 200, 0.2);
+    box-shadow: 0 0 25px rgba(255, 255, 150, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fffbe6;
+    line-height: 1.5em;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    background: rgba(255, 220, 180, 0.4);
+  }
+
+  /* Glowing cursor */
+  .cursor-glow {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,220,255,0.8), rgba(200,100,255,0));
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(25px);
+    mix-blend-mode: screen;
+    z-index: 10000;
+  }
+
+  /* Sparkle trail */
+  .sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(255,255,255,1), rgba(255,255,255,0));
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 9999;
+  }
+
+  /* Fairy lights */
+  .fairy-light {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,200,1), rgba(255,255,200,0));
+    opacity: 0.8;
+    animation: twinkle linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes twinkle {
+    0%,100% { opacity:0.3; transform: scale(0.8);}
+    50% { opacity:1; transform: scale(1.3);}
+  }
+
+  @media (max-width: 768px){
+    .letter { padding: 30px; font-size: 1.2em; }
+    .card { width: 200px; height: 160px; }
+    .cards-container { gap: 50px; } /* Adjusted for mobile to prevent too much spacing */
+  }
+</style>
+</head>
+<body>
+
+<div id="intro">to my bestfriend, kupal ka padin hehe</div>
+
+<div class="letter">
+  <div class="gold-banner">To Branden</div>
+  <p>To my no.1 kupal na ewan q ba ba’t kita naging bff,</p>
+  <p>I know na hindi ka lagi nakakatanggap ng letter or written notes na galing sakin, but ito digitized wag kang maarte. last year na natin sa alma mater natin and i couldn’t thank you enough for being my kinakapatid/ kinukuya/ best friend sa messy ahh life nato. I guess you are really God’s greatest blessing for me kasi kung wala ka, baka wala na ako dito.</p>
+  <p>This holidays siguro i wish you the best health (gaga ka kase) and please lang, choose yourself more kasi di lagi nandito kami para piliin ka. Yung alaga mo samin sana ganon din yung alaga mo sa sarili mo, siguro kung may martilyo ako tinuktok ko na sa ulo mo para lumambot naman. You deserve more than what you give, and always remember na you are worth more than you seem to be.</p>
+  <p>I'll always be thankful for your existence more in those times na ang hirap huminga para sakin, those times na I was so close to the edge na pati ikaw nahihirapan sakin yet you still stayed. You never judged me (wow? lagi nga e eme) for things na masyado na akong tanga and everything else. Kahit patience mo sa pagtuturo sakin nakakagulat e :,) kasi since g8 mo pa ako tinuturuan and if anyone else yun dati pa ako sinukuan. Dati pa ako iniwan kung saan pero I guess you’re really different than anyone else. Kasi kahit ilang chismis/paninira/pangdodowngrade ng iba sakin, you always believed what you have known about me. You never tolerated mga pagkakamali ko and kahit siguro ibalot kita tas ibenta kita, kukunin ka padin nila paku ka eh.</p>
+  <p>Merry Christmas Denden, if Christmas is everyday, your presence will always be the best gift given to those people around you. May 2026 be kind to you, and may your heart remain as you grow towards the future.</p>
+  <p>Always remember, na you can always go back to our conversations if you think that the world is being too harsh on you :)</p>
+  <p class="signature">From Alli / Alex / Kupal nuba trip mo 💌</p>
+</div>
+
+<div class="cards-container">
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">when you're disappointed</div>
+      <div class="card-back">you've done your best, and for that you already won in your own way. di mo kailangan ng medal para patunayan mo na magaling ka. Magaling ka talaga.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">when the world gets heavier on you</div>
+      <div class="card-back">keep going, pero rest ka muna. just because right now sinesermonan ka nanaman, marami kang ginagawa, di ka nanaman nakakatulog—its all worth it.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">when you feel like wala kang kakampi</div>
+      <div class="card-back">meron, nandito lang ako. kahit gisingin mo pa ako ng 3am if you're feeling sad or depressed, i'm just here — i can listen to you always.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cursor-glow"></div>
+
+<script>
+  // Intro fade out
+  window.addEventListener('load', () => {
+    const intro = document.getElementById('intro');
+    setTimeout(() => {
+      intro.style.opacity = '0';
+      setTimeout(() => {
+        intro.remove();
+      }, 1000); // Remove after fade
+    }, 3000); // Show for 3 seconds
+  });
+
+  // Fairy lights
+  const numLights = 50;
+  const totalHeight = document.body.scrollHeight;
+  for(let i=0;i<numLights;i++){
+    const light = document.createElement('div');
+    light.classList.add('fairy-light');
+    light.style.top = Math.random()*totalHeight + 'px';
+    light.style.left = Math.random()*100 + 'vw';
+    light.style.animationDuration = (1+Math.random()*2)+'s';
+    light.style.animationDelay = Math.random()*2+'s';
+    document.body.appendChild(light);
+  }
+
+  // Glowing cursor
+  const glow = document.querySelector('.cursor-glow');
+  let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', e => { mouseX=e.clientX; mouseY=e.clientY; });
+  document.addEventListener('touchmove', e => { mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; }, {passive:true});
+
+  // Sparkle trail array
+  const sparkles = [];
+  const maxSparkles = 12;
+
+  function animateCursor(){
+    currentX += (mouseX - currentX)*0.2;
+    currentY += (mouseY - currentY)*0.2;
+    glow.style.left = currentX+'px';
+    glow.style.top = currentY+'px';
+
+    // Create sparkles
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.left = currentX + (Math.random()*20-10)+'px';
+    sparkle.style.top = currentY + (Math.random()*20-10)+'px';
+    sparkle.style.width = sparkle.style.height = (4+Math.random()*4)+'px';
+    document.body.appendChild(sparkle);
+    sparkles.push(sparkle);
+    if(sparkles.length>maxSparkles){
+      const old = sparkles.shift();
+      old.remove();
+    }
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // Touch flip for mobile
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card=>{
+    card.addEventListener('touchstart', ()=>{ card.classList.toggle('touch-flip'); });
+  });
+</script>
+<!-- 🌀 Naruto Running with Orange Trail -->
+<script>
+const naruto = document.createElement('img');
+naruto.src = "https://www.icegif.com/wp-content/uploads/icegif-4353.gif";
+naruto.style.position = 'fixed';
+naruto.style.bottom = '8px';
+naruto.style.left = '-260px';
+naruto.style.width = '200px';
+naruto.style.height = 'auto';
+naruto.style.zIndex = '9999';
+naruto.style.pointerEvents = 'none';
+naruto.style.filter = 'drop-shadow(0 0 8px rgba(255,150,0,0.9))';
+document.body.appendChild(naruto);
+
+let posX = -260;
+let speed = 3.3;
+
+// ✨ Orange Trail (close to Naruto's feet)
+function createTrail(x, y) {
+  const trail = document.createElement('div');
+  trail.style.position = 'fixed';
+  trail.style.left = (x - 3) + 'px';
+  trail.style.top = (y - 4) + 'px';
+  trail.style.width = '12px';
+  trail.style.height = '12px';
+  trail.style.borderRadius = '50%';
+  trail.style.pointerEvents = 'none';
+  trail.style.zIndex = '9998';
+  trail.style.background = 'radial-gradient(circle, rgba(255,180,80,0.9), rgba(255,100,0,0))';
+  trail.style.boxShadow = '0 0 14px 5px rgba(255,120,0,0.7)';
+  document.body.appendChild(trail);
+
+  trail.animate([
+    { opacity: 1, transform: 'translateY(0) scale(1)' },
+    { opacity: 0, transform: 'translateY(-5px) scale(0.5)' }
+  ], { duration: 1000, easing: 'ease-out' });
+
+  setTimeout(() => trail.remove(), 1000);
+}
+
+function moveNaruto() {
+  posX += speed;
+  naruto.style.left = posX + 'px';
+
+  // Trail near feet
+  const rect = naruto.getBoundingClientRect();
+  createTrail(rect.left + rect.width * 0.45, rect.bottom - 8);
+
+  if (posX > window.innerWidth + 100) {
+    posX = -260; // reset to start again
+  }
+
+  requestAnimationFrame(moveNaruto);
+}
+requestAnimationFrame(moveNaruto);
+</script>
+</body>
+</html>

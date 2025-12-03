@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Charles 🎄</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: "Cambria Math", serif;
+  color: #fff9c4;
+  text-align: center;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(30,0,30,0.9)),
+              url(https://i.pinimg.com/originals/de/56/b0/de56b0b3f70f5fad7217658b7b43363c.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+}
+
+/* Intro */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30,30,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff9c4;
+  text-shadow: 0 0 20px #fff9c4,0 0 40px #fff59d;
+  z-index: 9999;
+  animation: fadeOut 3s ease 3s forwards;
+}
+@keyframes fadeOut { to {opacity:0; visibility:hidden;} }
+
+/* Letter fade in */
+.letter {
+  max-width: 800px;
+  margin: 40px auto;
+  background: rgba(255,255,224,0.15);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: justify;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  backdrop-filter: blur(4px);
+  color: #fffde7;
+  opacity: 0;
+  animation: fadeIn 2s ease 4s forwards;
+}
+@keyframes fadeIn { to {opacity:1;} }
+
+/* Header plate */
+.gold-plate {
+  display: inline-block;
+  background: linear-gradient(135deg, #fff59d, #fff176);
+  color: #5d4037;
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 0 0 20px #fff9c4;
+  margin-top: 60px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease 3.5s forwards;
+}
+
+/* Card container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 100px;
+  margin-bottom: 100px;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease 4.5s forwards;
+}
+
+/* Flip cards */
+.card {
+  perspective: 1200px;
+  width: 100%;
+  height: 200px;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.card:hover .card-inner,
+.card.touch-flip .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 25px 5px rgba(255,235,59,0.6);
+  color: #5d4037;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  word-wrap: break-word;
+}
+.card-front { background: rgba(255,255,153,0.5); }
+.card-back { background: rgba(255,255,102,0.8); transform: rotateY(180deg); }
+
+/* Fairy lights */
+.fairy-light {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,200,1), rgba(255,255,200,0));
+  opacity: 0.8;
+  z-index: 0;
+  animation: twinkle linear infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity:0.3; transform: scale(0.8); }
+  50% { opacity:1; transform: scale(1.3); }
+}
+
+/* Cursor glow + sparkles */
+.cursor-glow {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,200,0.7), rgba(255,255,153,0));
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(15px);
+  mix-blend-mode: screen;
+  z-index: 10000;
+}
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #d8b4ff, transparent);
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(1px);
+  animation: sparkleAnim 0.8s ease-out forwards;
+}
+@keyframes sparkleAnim {
+  0% { opacity: 1; transform: translate(0,0) scale(1); }
+  50% { opacity: 1; transform: translate(var(--dx,0), var(--dy,0)) scale(1.5); }
+  100% { opacity: 0; transform: translate(calc(var(--dx,0)*1.5), calc(var(--dy,0)*1.5)) scale(0.5); }
+}
+
+@media (max-width: 600px) {
+  .letter { font-size: 1em; padding: 20px; }
+  .card-container { gap: 40px; }
+  .card { height: 180px; }
+}
+
+/* Footer quote */
+.footer-quote {
+  position: relative;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  margin-top: 150px;
+  margin-bottom: 80px;
+  color: #fff;
+  white-space: pre;
+}
+.footer-quote span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+}
+.footer-quote span.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+  text-shadow: 0 0 12px rgba(200,160,255,0.9), 0 0 25px rgba(170,100,255,0.8), 0 0 45px rgba(220,180,255,0.6);
+}
+</style>
+</head>
+<body>
+
+<div id="intro">To the one I admire the most</div>
+<div class="gold-plate">To Charles</div>
+
+<div class="letter">
+<p>It came to me months ago that I have never really told you how I felt, fully. Now before anything I want you to know na this isn’t just a random letter and i’m probably going to risk everything dito pero yolo muna :,D.</p>
+<p>I liked you for 9 months, it started off with a mere admiration until di ko narealize na ang tagal ko na sya pinanghahawakan. i never planned to confess, to let you know, honestly to let anyone know kaso it got spilled out sa mga friends ko and well, umabot na rin sa inyo. I thought it would end there kasi usually, if kilala mo ako earlier this year, everyone I liked comes and goes, never lasts for longer than 4 months or so, as long as walang answer or clear rejection nila madali lang ako makaalis. so yeah, pati ako na startled nung narealize ko na its been 9 months, 9 months of happily admiring you, 9 months of staying loyal to my own feelings for you, and just because there's something about you that just makes me want to stay, maybe it's your simplicity the way na you were so gentle with my feelings, anyways thank you, for letting me stay, for letting me admire you happily, for still being so kind with me with you im comfortable to act normally kahit nadaan lang sainyo ng di naprepressure sa buhay. because of that i learned myself that caring for someone doesn’t need alot, i’m happy just by seeing you smile, seeing you okay, even those moments in small chats, small interactions, and those times im able to help you with anything, all of those made me happy, your presence is comforting in many ways even from afar. sorry nalang talaga di ako namamansin now lalo sa personal, pero really i still do care for you a lot.  </p>
+<p>Happy holidays charles, may you be guided with a clear light and be given the best of the best blessings in your life, i’ll always be here if you need anything, it’s not because im waiting for an answer, but it's because for me it feels right, because i want this, this time ginusto ko talaga ito, ginusto kita, no need for long messaged rejections, no need to reply to this, a simple appreciation is already enough, i won’t expect much don’t worry, pero always remember na no matter how small or big of what you achieved, someone is always proud of it. I'll always be proud of you. may 2026 be kind to you, may your future be set on a proper path but most importantly, be kind to yourself.</p>
+<p>I hope my simple gift gives you joy, for it is blessed with the same love and care that filled my heart, thank you really.</p>
+</div>
+
+<div class="letter" style="background: rgba(255,255,224,0.15); font-weight:bold; text-align:center;">
+<p>please feel free to come back to this place any time, for this is yours to read</p>
+</div>
+
+<div class="card-container">
+  <div class="card"><div class="card-inner"><div class="card-front">When you’re disappointed</div><div class="card-back">Don’t be, its part of your journey, use it as a stepping stone...</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">When you’re stressed</div><div class="card-back">Rest, breathe, di ka minamadali ng mundo...</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">When you feel alone</div><div class="card-back">You’re not, you have people around you...</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">Be kind to yourself</div><div class="card-back">Ikaw muna. Always dapat in all ways.</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">When things don’t go as planned</div><div class="card-back">It’s okay — sometimes detours lead to the most beautiful destinations...</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">in every achievement big or small</div><div class="card-back">i'm always proud of you.</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">risk everything</div><div class="card-back">regret nothing.</div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front">When you forget your worth</div><div class="card-back">Remember, you’re enough. You always have been...</div></div></div>
+</div>
+
+<div class="letter" style="background: rgba(255,255,224,0.15); font-weight:bold; text-align:center; margin-bottom:50px;">
+<p>A playlist na dati ko pa ginawa :P</p>
+<p>it really just reminds me of you :></p>
+<iframe data-testid="embed-iframe" style="border-radius:12px; margin-top:15px;" src="https://open.spotify.com/embed/playlist/2YhU2uoR91jdkbXgRRsd2T?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+<div class="cursor-glow"></div>
+<div class="footer-quote" id="magicQuote"> Everywhere, Everything </div>
+
+<script>
+// Cursor glow + sparkles
+const glow = document.querySelector('.cursor-glow');
+let mouseX=0, mouseY=0, currentX=0, currentY=0;
+document.addEventListener('mousemove', e => { mouseX=e.clientX; mouseY=e.clientY; });
+document.addEventListener('touchmove', e => { mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; }, {passive:true});
+function animateCursor() {
+  currentX+=(mouseX-currentX)*0.15;
+  currentY+=(mouseY-currentY)*0.15;
+  glow.style.left=currentX+'px';
+  glow.style.top=currentY+'px';
+  createSparkle(currentX, currentY);
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+function createSparkle(x,y){
+  const s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=x+'px';
+  s.style.top=y+'px';
+  document.body.appendChild(s);
+  requestAnimationFrame(()=>{ s.style.opacity=1; s.style.transform='translate(-50%,-50%) scale(1)';});
+  setTimeout(()=>{ s.style.opacity=0; s.style.transform='translate(-50%,-50%) scale(0.3)'; },200);
+  setTimeout(()=>{ s.remove(); },600);
+}
+
+// Fairy lights
+const fairyCount = 60;
+for(let i=0;i<fairyCount;i++){
+  const f=document.createElement('div');
+  f.classList.add('fairy-light');
+  f.style.left=Math.random()*100+'vw';
+  f.style.top=Math.random()*document.body.scrollHeight+'px';
+  f.style.animationDuration=(1.5+Math.random()*2)+'s';
+  f.style.animationDelay=Math.random()*3+'s';
+  document.body.appendChild(f);
+}
+window.addEventListener('resize',()=>{
+  document.querySelectorAll('.fairy-light').forEach(f=>{f.style.top=Math.random()*document.body.scrollHeight+'px';});
+});
+
+// Card touch flip
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('touchstart',()=>{card.classList.toggle('touch-flip');});
+});
+
+// Shimeji runner
+const shimeji=document.createElement('img');
+shimeji.src="https://i.pinimg.com/originals/ad/18/74/ad1874f2fb6b3a4c6587052229f82393.gif";
+shimeji.style.position='fixed';
+shimeji.style.bottom='18px';
+shimeji.style.left='-260px';
+shimeji.style.width='200px';
+shimeji.style.height='auto';
+shimeji.style.zIndex='9999';
+shimeji.style.pointerEvents='none';
+shimeji.style.opacity='1';
+shimeji.style.filter='drop-shadow(0 0 8px rgba(255,220,200,0.7))';
+shimeji.style.transformOrigin='50% 50%';
+shimeji.style.transform='scaleX(-1)';
+document.body.appendChild(shimeji);
+let direction=1, speed=3.2, posX=-260;
+function moveShimeji(){
+  posX+=direction*speed;
+  shimeji.style.left=posX+'px';
+  const rect=shimeji.getBoundingClientRect();
+  createSparkle(rect.left+rect.width*0.5, rect.bottom-8);
+  const offRight=window.innerWidth+40, offLeft=-(rect.width+40);
+  if(direction===1 && posX>offRight){direction=-1; shimeji.style.transform='scaleX(1)'; posX=offRight;}
+  if(direction===-1 && posX<offLeft){direction=1; shimeji.style.transform='scaleX(-1)'; posX=offLeft;}
+  requestAnimationFrame(moveShimeji);
+}
+requestAnimationFrame(moveShimeji);
+// Separate sparkle function for Shimeji
+function createShimejiSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.style.position = 'fixed'; // FIXED for proper positioning
+    sparkle.style.left = x + 'px';
+    sparkle.style.top = y + 'px';
+    sparkle.style.width = '8px';
+    sparkle.style.height = '8px';
+    sparkle.style.borderRadius = '50%';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.zIndex = '9998';
+    sparkle.style.background = 'radial-gradient(circle, rgba(255,240,200,0.95), rgba(255,190,180,0.15))';
+    sparkle.style.boxShadow = '0 0 10px 4px rgba(255,220,170,0.6)';
+    document.body.appendChild(sparkle);
+    sparkle.animate([
+        { opacity: 1, transform: 'translateY(0) scale(1)' },
+        { opacity: 0, transform: 'translateY(-8px) scale(0.4)' }
+    ], { duration: 1200, easing: 'ease-out' });
+    setTimeout(() => sparkle.remove(), 1200);
+}
+
+function moveShimeji() {
+    posX += direction * speed;
+    shimeji.style.left = posX + 'px';
+    const rect = shimeji.getBoundingClientRect();
+    createShimejiSparkle(rect.left + rect.width * 0.5, rect.bottom - 8); // use fixed sparkle
+    const offRight = window.innerWidth + 40, offLeft = -(rect.width + 40);
+    if (direction === 1 && posX > offRight) { direction = -1; shimeji.style.transform = 'scaleX(1)'; posX = offRight; }
+    if (direction === -1 && posX < offLeft) { direction = 1; shimeji.style.transform = 'scaleX(-1)'; posX = offLeft; }
+    requestAnimationFrame(moveShimeji);
+}
+requestAnimationFrame(moveShimeji);
+
+// Footer magic quote animation
+const quote=document.getElementById('magicQuote');
+const text=quote.textContent; quote.textContent='';
+for(let char of text){ const span=document.createElement('span'); span.textContent=char; quote.appendChild(span);}
+const letters=quote.querySelectorAll('span');
+function animateLetters(){
+  letters.forEach((letter,index)=>{
+    setTimeout(()=>{
+      letter.classList.add('visible'); createLetterBurst(letter);
+    }, index*120);
+  });
+}
+function createLetterBurst(letter){
+  const rect=letter.getBoundingClientRect();
+  for(let i=0;i<15;i++){
+    const sparkle=document.createElement('div');
+    sparkle.classList.add('sparkle');
+    const dx=(Math.random()-0.5)*50;
+    const dy=(Math.random()-0.5)*50;
+    sparkle.style.left=$;{rect.left+rect.width/2}px;
+    sparkle.style.top=$;{rect.top+rect.height/2}px;
+    sparkle.style.setProperty('--dx', dx+'px');
+    sparkle.style.setProperty('--dy', dy+'px');
+    sparkle.style.animationDelay=Math.random()*0.2+'s';
+    document.body.appendChild(sparkle);
+    setTimeout(()=>sparkle.remove(),1000);
+  }
+}
+window.addEventListener('scroll',()=>{
+  const scrollPosition=window.scrollY+window.innerHeight;
+  const documentHeight=document.body.offsetHeight;
+  if(scrollPosition>=documentHeight-100 && !quote.classList.contains('animated')){
+    quote.classList.add('animated'); animateLetters();
+  }
+});
+</script>
+
+</body>
+</html>

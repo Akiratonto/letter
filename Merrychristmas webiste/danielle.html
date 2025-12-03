@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Dani 🎄</title>
+<style>
+body {
+  margin: 0;
+  font-family: "Cambria Math", serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(40,0,60,0.9)),
+              url("https://img.pikbest.com/photo/20241024/purple-christmas-tree-on-a-purple-background_11000532.jpg!w700wp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+}
+
+/* Intro animation */
+#intro {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(10,0,20,0.9);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  font-size:2em; font-weight:bold; color:#c792ea;
+  text-shadow: 0 0 20px #dcb3ff,0 0 40px violet;
+  z-index:9999;
+  animation: fadeOut 3s ease 3s forwards;
+}
+@keyframes fadeOut { to {opacity:0; visibility:hidden;} }
+
+/* Header plate */
+.gold-plate {
+  display:inline-block;
+  background: linear-gradient(135deg, #a36df2, #7c3aed);
+  color:white;
+  padding:20px 40px;
+  border-radius:20px;
+  font-size:2em;
+  font-weight:bold;
+  box-shadow:0 0 20px #c084fc;
+  margin-top:60px;
+}
+
+/* Letter styling */
+.letter {
+  max-width:800px;
+  margin:40px auto;
+  background: rgba(255,255,255,0.1);
+  padding:30px;
+  border-radius:20px;
+  text-align:justify;
+  font-size:1.2em;
+  line-height:1.8em;
+  backdrop-filter: blur(4px);
+}
+
+/* Card container with grid */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 60px;
+  margin-bottom:100px;
+  padding:20px;
+}
+
+/* Flip cards */
+.card { perspective:1200px; width:100%; height:200px; }
+.card-inner { position:relative; width:100%; height:100%; transition: transform 0.8s; transform-style: preserve-3d; }
+.card:hover .card-inner, .card.touch-flip .card-inner { transform:rotateY(180deg); }
+
+.card-front, .card-back {
+  position:absolute; width:100%; height:100%; backface-visibility:hidden;
+  border-radius:15px; box-shadow:0 0 25px 5px rgba(200,150,255,0.6);
+  color:black; font-size:1.1em; display:flex; align-items:center; justify-content:center;
+  padding:15px; word-wrap: break-word;
+}
+
+.card-front { background: rgba(240,200,255,0.5); }
+.card-back { background: rgba(230,150,255,0.8); transform:rotateY(180deg); }
+
+/* Fairy lights */
+.fairy-light {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,220,200,1), rgba(255,220,200,0));
+  opacity:0.8;
+  z-index:0;
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity:0.3; transform: scale(0.8);}
+  50% { opacity:1; transform: scale(1.3);}
+}
+
+/* Glowing cursor */
+.cursor-glow {
+  position:fixed;
+  width:50px; height:50px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(230,200,255,0.7), rgba(200,100,255,0));
+  pointer-events:none;
+  transform: translate(-50%, -50%);
+  filter: blur(15px);
+  mix-blend-mode: screen;
+  z-index:10000;
+}
+
+/* Sparkle trail */
+.sparkle {
+  position:fixed;
+  width:8px; height:8px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(255,240,200,1), rgba(255,240,200,0));
+  pointer-events:none;
+  z-index:9999;
+  opacity:0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+/* Responsive text & card size */
+@media (max-width: 600px) {
+  .letter { font-size: 1em; padding:20px; }
+  .card-container { gap: 40px; }
+  .card { height:180px; }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">Hi Dani, Merry Christmas sa aking ina-ate-atehan, gastos buddy, eat and sit tas iwasan si ano 🎄</div>
+
+<div class="gold-plate">To Dani</div>
+
+<div class="letter">
+<p>To Dani,</p>
+
+<p>Merry christmas to one of the most important people in my life, kaw naging tanging definition ko ng kahel na langit. sa lahat ng gala natin, kulitan, chikahan i really felt like i had the most best ate in the world. you deserve the world more than you know and i’m glad i met you, though kahit na dati kilala ko na pangalan mo, sana nakilala na kita buo dati pa.</p>
+
+<p>May this holiday and this coming year treat you well, always remember na may lumiliwanag ang mundo dahil sa’yo ( abs cbn station id ang dating ). may your heart receive the same treatment you give to others, someone whose as gentle as you, whose as lovable as you (in short tumakbo kana pag kinalabit ka ulit sa sm). if you always need someone nandito lang ako, di kana nag iisa. for God knows how much you saved me in those darkest phase ng life ko. kung sa iba parang ang babaw naman nung rason na yon para sayo nakita mo kung gaano kahirap yung dinaan ko yet you remain patient with me kahit ilang beses paulit ulit problema ko, you chose to listen than let me lose my sanity. lalo na sa mga araw na parang nagmumukhang tanga na ako sa buhay nandyan ka palagi to witness it all madapa man magagawa pa din nating tumawa (literally). kahit wala na tayong pera pareho we still make everything worth it after school.</p>
+
+<p>and I want you to know, for everything we do, I'll always cherish it. kahit ano pa yan handa naman akong damayan ka always :). Keep being strong, independent, and caring, for the lord already has plans for your kind heart.</p>
+
+<p>Merry christmas dani, and happy new year. May you be blessed and guided, always remember, if your world begins to feel heavier. We are always here to make it lighter.</p>
+</div>
+
+<div class="card-container">
+<div class="card"><div class="card-inner"><div class="card-front">When you feel alone</div><div class="card-back">Never kana ulit nagiisa, nandito na kami to always go by your side, to always listen to you, to believe you.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">When you feel pressured</div><div class="card-back">Take it slow, you're doing great :) As long as you tried, you already won in that situation.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">Pag pagod kana</div><div class="card-back">Pahinga muna te, gala tayo, bisita ka munti :D, for sometimes resting is part of being productive.</div></div></div>
+</div>
+
+<div class="cursor-glow"></div>
+
+<script>
+// Smooth cursor / touch position
+const glow=document.querySelector('.cursor-glow');
+let mouseX=0, mouseY=0, currentX=0, currentY=0;
+
+document.addEventListener('mousemove', e=>{mouseX=e.clientX; mouseY=e.clientY;});
+document.addEventListener('touchmove', e=>{
+  mouseX=e.touches[0].clientX;
+  mouseY=e.touches[0].clientY;
+}, {passive:true});
+
+function animateCursor(){
+  currentX+=(mouseX-currentX)*0.15;
+  currentY+=(mouseY-currentY)*0.15;
+  glow.style.left=currentX+'px';
+  glow.style.top=currentY+'px';
+  createSparkle(currentX, currentY);
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Sparkle trail creation
+function createSparkle(x, y){
+  const s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=x+'px';
+  s.style.top=y+'px';
+  document.body.appendChild(s);
+  requestAnimationFrame(()=>{ s.style.opacity=1; s.style.transform='translate(-50%, -50%) scale(1)';});
+  setTimeout(()=>{ s.style.opacity=0; s.style.transform='translate(-50%, -50%) scale(0.3)'; },200);
+  setTimeout(()=>{ s.remove(); },600);
+}
+
+// Twinkling fairy lights
+const fairyCount=40;
+for(let i=0;i<fairyCount;i++){
+  const f=document.createElement('div');
+  f.classList.add('fairy-light');
+  f.style.left=Math.random()*100+'vw';
+  f.style.top=Math.random()*100+'vh';
+  f.style.animationDuration=(1.5+Math.random()*2)+'s';
+  f.style.animationDelay=Math.random()*3+'s';
+  document.body.appendChild(f);
+}
+
+// Touch flip for cards
+const cards=document.querySelectorAll('.card');
+cards.forEach(card=>{
+  card.addEventListener('touchstart', ()=>{card.classList.toggle('touch-flip');});
+});
+</script>
+
+<!-- ✨ Shimeji Runner with Sparkly Purple Trail -->
+<script>
+const shimeji = document.createElement('img');
+shimeji.src = "https://cdn.twibooru.org/img/download/2020/7/20/1828836.gif";
+shimeji.style.position = 'fixed';
+shimeji.style.bottom = '15px';
+shimeji.style.left = '-300px';
+shimeji.style.width = '150px';  
+shimeji.style.zIndex = '9999';
+shimeji.style.pointerEvents = 'none';
+shimeji.style.filter = 'drop-shadow(0 0 12px rgba(180,100,255,0.8))';
+document.body.appendChild(shimeji);
+
+let posX = -300;
+const speed = 3.3;
+
+// Sparkly trail
+function createTrail(x, y) {
+  for (let i = 0; i < 3; i++) { // more sparkles
+    const sparkle = document.createElement('div');
+    sparkle.style.position = 'fixed';
+    sparkle.style.left = (x - 6 + Math.random() * 12) + 'px';
+    sparkle.style.top = (y - 10 + Math.random() * 20) + 'px';
+    sparkle.style.width = (6 + Math.random() * 6) + 'px';
+    sparkle.style.height = sparkle.style.width;
+    sparkle.style.borderRadius = '50%';
+    sparkle.style.background = 'radial-gradient(circle, rgba(200,150,255,1), rgba(150,80,255,0))';
+    sparkle.style.boxShadow = '0 0 12px 4px rgba(180,100,255,0.8)';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.zIndex = '9998';
+    document.body.appendChild(sparkle);
+
+    const duration = 900 + Math.random() * 400;
+    sparkle.animate([
+      { opacity: 1, transform: 'translateY(0) scale(1)' },
+      { opacity: 0, transform: 'translateY(-12px) scale(0.4)' }
+    ], {
+      duration,
+      easing: 'ease-out'
+    });
+
+    setTimeout(() => sparkle.remove(), duration);
+  }
+}
+
+function moveShimeji() {
+  posX += speed;
+  shimeji.style.left = posX + 'px';
+
+  const rect = shimeji.getBoundingClientRect();
+  createTrail(rect.left + rect.width * 0.4, rect.bottom - 10);
+
+  if (posX > window.innerWidth + 150) {
+    posX = -300;
+  }
+
+  requestAnimationFrame(moveShimeji);
+}
+
+requestAnimationFrame(moveShimeji);
+</script>
+</body>
+</html>
